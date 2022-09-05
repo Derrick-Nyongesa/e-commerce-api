@@ -1,4 +1,4 @@
-from .models import User, Customer, Products, Orders, Cart, Feedback
+from .models import User, Customer, Products, Orders, Cart, Feedback, Category_One, Category_Two
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
@@ -117,4 +117,20 @@ class Feedback_Serializer(serializers.ModelSerializer):
 
     class Meta:
         model = Feedback
+        fields = "__all__"
+
+
+class Category1_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Category_One
+        fields = "__all__"
+
+
+class Category2_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Category_Two
         fields = "__all__"
