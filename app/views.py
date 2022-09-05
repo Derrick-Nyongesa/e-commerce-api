@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
-from .serializers import UserSerializer, LoginSerializer, RegisterSerializer
+from .serializers import UserSerializer, LoginSerializer, RegisterSerializer, Customer_Serializer, Products_Serializer, Cart_Serializer, Orders_Serializer, Feedback_Serializer
 from rest_framework.response import Response
 from knox.models import AuthToken
+from .models import Products, Cart, Orders, Feedback
 
 # Create your views here.
 

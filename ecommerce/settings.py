@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -149,3 +151,9 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ALLOW_ALL_ORIGINS: bool
+
+cloudinary.config(
+    cloud_name=config("CLOUDINARY_NAME"),
+    api_key=config("CLOUDINARY_KEY"),
+    api_secret=config("CLOUDINARY_SECRET")
+)

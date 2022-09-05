@@ -1,4 +1,4 @@
-from .models import User
+from .models import User, Customer, Products, Orders, Cart, Feedback
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
@@ -54,3 +54,67 @@ class LoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError('Incorrect Credentials Passed.')
+
+
+# class Today_Serializer(serializers.ModelSerializer):
+#     users = UserSerializer(many=True, read_only=True)
+
+#     class Meta:
+#         model = Today_Deals
+#         fields = "__all__"
+
+
+# class Recommended_Serializer(serializers.ModelSerializer):
+#     users = UserSerializer(many=True, read_only=True)
+
+#     class Meta:
+#         model = Recommended_Products
+#         fields = "__all__"
+
+
+class Customer_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Customer
+        fields = "__all__"
+
+
+class Products_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Products
+        fields = "__all__"
+
+
+# class Similar_Serializer(serializers.ModelSerializer):
+#     users = UserSerializer(many=True, read_only=True)
+
+#     class Meta:
+#         model = Similar_Products
+#         fields = "__all__"
+
+
+class Cart_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Cart
+        fields = "__all__"
+
+
+class Orders_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Orders
+        fields = "__all__"
+
+
+class Feedback_Serializer(serializers.ModelSerializer):
+    users = UserSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Feedback
+        fields = "__all__"
